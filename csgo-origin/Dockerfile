@@ -17,7 +17,6 @@ ENV MAP de_dust2
 
 ENV STEAMCMDDIR /steamcmd
 ENV CSGODIR /csgo-server
-ENV MODDIR /mod
 
 RUN set -x \
     && dpkg --add-architecture i386 \
@@ -39,7 +38,6 @@ USER ${USER}
 
 VOLUME ${STEAMCMDDIR}
 VOLUME ${CSGODIR}
-VOLUME ${MODDIR}
 
 COPY ./entry.sh /entry.sh
 
