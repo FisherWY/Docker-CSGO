@@ -3,7 +3,7 @@ CSGO服务器Docker镜像，使用一份游戏服务器本体文件+多份Mod文
 Dockerfile参考了[CM2Walki/CSGO](https://github.com/CM2Walki/CSGO)的写法
 
 ## 教程
-1. 图文教程: 先挖个坑，写好了发到个人博客和B站专栏中
+1. 图文教程: 个人博客点[这里](https://fisherwy.github.io/)和B站专栏点[这里](https://www.bilibili.com/read/cv16555775)
 2. 视频教程: 先挖个坑，录好了发到B站中
 
 ## 镜像描述
@@ -127,7 +127,7 @@ services:
 ```
 使用`docker-compose`创建和启动容器
 ```bash
-sudo docker-compose -f docer-csgo-origin.yaml up -d
+sudo docker-compose -f docker-csgo-origin.yaml up -d
 ```
 
 ### 4. 创建和启动带Mod的CSGO服务器容器
