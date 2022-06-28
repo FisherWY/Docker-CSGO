@@ -4,7 +4,7 @@ Dockerfile参考了[CM2Walki/CSGO](https://github.com/CM2Walki/CSGO)的写法
 
 ## 教程
 1. 图文教程: 个人博客点[这里](https://fisherwy.github.io/)和B站专栏点[这里](https://www.bilibili.com/read/cv16555775)
-2. 视频教程: 先挖个坑，录好了发到B站中
+2. 视频教程: B站视频点[这里](https://www.bilibili.com/video/BV15Z4y1t7F3/)
 
 ## 镜像描述
 - `docker-csgo:installer`: 服务器安装器，通过将文件夹挂载到容器中，完成Steamcmd和CSGO服务器的安装
