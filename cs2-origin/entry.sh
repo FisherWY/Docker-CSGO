@@ -7,6 +7,14 @@ function link() {
     ln -sfT ${STEAMCMDDIR}/linux64/steamclient.so ~/.steam/sdk64/steamclient.so
 }
 
+function update() {
+    bash ${STEAMCMDDIR}/steamcmd.sh \
+        +force_install_dir ${CS2DIR} \
+        +login ${STEAMACCOUNT} ${STEAMPASSWORD} ${CODE} \
+        +app_update ${CS2APPID} \
+        +quit
+}
+
 function start() {
     ${CS2DIR}/game/bin/linuxsteamrt64/cs2 \
         -dedicated \
@@ -21,4 +29,5 @@ function start() {
 }
 
 link
+update
 start
