@@ -4,6 +4,7 @@ LABEL maintainer="wz2483156090@gmail.com"
 
 ARG PUID=1000
 
+ENV UPDATE "1"
 ENV STEAMACCOUNT anonymous
 ENV STEAMPASSWORD ""
 ENV CODE ""

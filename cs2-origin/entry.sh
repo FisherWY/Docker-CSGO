@@ -29,5 +29,9 @@ function start() {
 }
 
 link
-update
+if [ ${UPDATE} != "0" ]; then
+    update
+else
+    echo "Skip update cs2 before start"
+fi
 start
