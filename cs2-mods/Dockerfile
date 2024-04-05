@@ -30,6 +30,7 @@ RUN set -x \
         lib32stdc++6 \
         lib32gcc1 \
         lib32z1 \
+        libicu66 \
         libsdl2-2.0-0:i386 \
         ca-certificates \
     && useradd -u "${PUID}" -m "${USER}" \
