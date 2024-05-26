@@ -230,3 +230,51 @@ sudo docker-compose -f docker-csgo-1v1.yaml up -d
 
 6. 可以同时启动多个容器吗？  
 理论上，使用不同的端口是可以同时启动多个容器的，但可能存在一个Steam Account(固定在`server.cfg`中，并没有使用参数化启动的配置)只能启动一个服务器的限制。由于本仓库的初衷是一份服务器游戏文件+多份Mod的快捷切换和管理，因此本人没有尝试过同时启动多个容器，有兴趣的朋友可以试一下
+
+## 2024.5.26更新
+by:XBDJ
+- 更新ymal以同时启动多个容器
+```
+version: '3'
+#1服
+services:
+  csgo-origin:
+    container_name: csgo-origin
+    restart: always
+    image: registry.cn-shenzhen.aliyuncs.com/fisheryung/docker-csgo:origin
+    network_mode: host
+    volumes:
+      - /home/ubuntu/steamcmd:/steamcmd # 冒号前的挂载路径需要根据自己的配置改变，可以使用pwd命令查看当前路径
+      - /home/ubuntu/csgo-server:/csgo-server   # 同上
+      - /home/ubuntu/li/server.cfg:/csgo-server/csgo/cfg #该文件为插件服文件无mod服可忽略
+      - /home/ubuntu/li/csgoserver.cfg:/csgo-server/csgo/cfg #同上
+    environment:
+      - TICKRATE=128
+      - GAMETYPE=0
+      - GAMEMODE=0
+      - MAPGROUP=mg_active
+      - MAP=kz_7in1
+      - MAXPLAYERS=12
+
+#2服
+version: '3'
+services:
+  csgo-origin:
+    container_name: csgo-origin-2
+    restart: always
+    image: registry.cn-shenzhen.aliyuncs.com/fisheryung/docker-csgo:origin
+    network_mode: host
+    volumes:
+      - /home/ubuntu/steamcmd:/steamcmd
+      - /home/ubuntu/csgo-server:/csgo-server
+      - /home/ubuntu/li/server-2.cfg:/csgo-server/csgo/cfg/
+      - /home/ubuntu/li/csgoserver-2.cfg:/csgo-server/csgo/cfg/
+    environment:
+      - TICKRATE=128
+      - GAMETYPE=0
+      - GAMEMODE=0
+      - MAPGROUP=mg_active
+      - MAP=kz_7in1
+      - MAXPLAYERS=12
+      - port=27016
+```
